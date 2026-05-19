@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ — Чайхана «Исфайрам»</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Логин -->
+    <div class="admin-login" id="adminLogin">
+        <div class="admin-login-card">
+            <span style="font-size:2.5rem;display:block;text-align:center;margin-bottom:12px">👨‍💼</span>
+            <h1>Админ-панель</h1>
+            <p>Чайхана «Исфайрам»</p>
+            <div class="error-msg" id="loginError"></div>
+            <input type="password" class="admin-input" id="adminPassword" placeholder="Пароль" autofocus>
+            <button class="btn btn-primary" onclick="adminLogin()">Войти</button>
+        </div>
+    </div>
+
+    <!-- Панель -->
+    <div class="admin-panel" id="adminPanel" style="display:none">
+        <nav class="admin-nav">
+            <span class="admin-logo">👨‍💼 Админ</span>
+            <div class="admin-nav-right">
+                <a href="index.html" class="admin-link">На сайт</a>
+                <a href="#" class="admin-link" onclick="adminLogout()">Выйти</a>
+            </div>
+        </nav>
+
+        <!-- Статистика -->
+        <div class="stats-grid" id="statsGrid">
+            <div class="stat-card">
+                <span class="stat-icon">📦</span>
+                <span class="stat-num" id="statOrders">0</span>
+                <span class="stat-label">Заказов сегодня</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">💰</span>
+                <span class="stat-num" id="statRevenue">0</span>
+                <span class="stat-label">Сом выручка</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">⚖️</span>
+                <span class="stat-num" id="statKg">0</span>
+                <span class="stat-label">Кг продано</span>
+            </div>
+            <div class="stat-card stat-alert">
+                <span class="stat-icon">🔔</span>
+                <span class="stat-num" id="statNew">0</span>
+                <span class="stat-label">Новых заказов</span>
+            </div>
+        </div>
+
+        <!-- Фильтры -->
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">Все</button>
+            <button class="filter-btn" data-filter="new" onclick="setFilter('new',this)">🟡 Новые</button>
+            <button class="filter-btn" data-filter="cooking" onclick="setFilter('cooking',this)">🟢 Готовятся</button>
+            <button class="filter-btn" data-filter="ready" onclick="setFilter('ready',this)">🔵 Готовы</button>
+            <button class="filter-btn" data-filter="done" onclick="setFilter('done',this)">⚪ Выданы</button>
+        </div>
+
+        <!-- Заказы -->
+        <div class="orders-list" id="ordersList">
+            <div class="empty">Заказов пока нет</div>
+        </div>
+
+        <!-- Звук уведомления -->
+        <audio id="notifSound" preload="auto">
+            <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdH2JjYyNi4eFgH1yd3N8g4mOkZKTk5GPjImEf3t3dHN1eX+EiI2QkpOTko+MiIR/e3Zzc3V5f4SIjZCSkpOTko+MiIR/e3ZzcnR4fYKGio2PkZGRkI6LiIR/e3ZzcnR4fYKGio2PkZGRkI6LiIN/e3ZzcnR4fYKGio2PkZGQj42KhoJ+enZzcXN3fIGFiYyOkJCQj42Lh4N/e3dzcXN3fIGFiYyOkJCQj42Lh4N/" type="audio/wav">
+        </audio>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

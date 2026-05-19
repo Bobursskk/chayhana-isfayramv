@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чат — Чайхана «Исфайрам»</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <!-- Заголовок чата -->
+    <div class="chat-header" id="chatHeader">
+        <a href="/order.html" class="chat-back">← Назад</a>
+        <div class="chat-header-info">
+            <h2>💬 Чат с чайханой</h2>
+            <span class="chat-order-id" id="chatOrderId">Заказ</span>
+        </div>
+        <div class="chat-header-actions">
+            <button class="call-btn" id="audioCallBtn" title="Аудио звонок">📞</button>
+            <button class="call-btn" id="videoCallBtn" title="Видео звонок">📹</button>
+        </div>
+    </div>
+
+    <!-- Сообщения -->
+    <div class="chat-messages" id="chatMessages">
+        <div class="chat-empty" id="chatEmpty">
+            <span>🫖</span>
+            <p>Напишите нам и мы ответим!</p>
+        </div>
+    </div>
+
+    <!-- Набирает -->
+    <div class="typing-indicator" id="typingIndicator" style="display:none">
+        <span>Печатает</span>
+        <div class="typing-dots"><span></span><span></span><span></span></div>
+    </div>
+
+    <!-- Ввод сообщения -->
+    <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Сообщение..." autocomplete="off">
+        <button class="send-btn" id="sendBtn">➤</button>
+    </div>
+
+    <!-- Экран звонка -->
+    <div class="call-screen" id="callScreen" style="display:none">
+        <div class="call-overlay"></div>
+        <div class="call-content">
+            <div class="call-avatar">🫖</div>
+            <h3 class="call-title" id="callTitle">Звонок...</h3>
+            <p class="call-status" id="callStatus">Соединяем...</p>
+            <div class="call-timer" id="callTimer">00:00</div>
+            <div class="call-videos" id="callVideos" style="display:none">
+                <video id="remoteVideo" autoplay playsinline></video>
+                <video id="localVideo" autoplay playsinline muted></video>
+            </div>
+            <div class="call-controls">
+                <button class="ctrl-btn" id="muteBtn" title="Микрофон">🎤</button>
+                <button class="ctrl-btn ctrl-end" id="endCallBtn" title="Завершить">📵</button>
+                <button class="ctrl-btn" id="camBtn" title="Камера" style="display:none">📷</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Входящий звонок -->
+    <div class="incoming-call" id="incomingCall" style="display:none">
+        <div class="incoming-inner">
+            <div class="incoming-avatar">🫖</div>
+            <h3>Входящий звонок</h3>
+            <p id="incomingType">Аудио звонок</p>
+            <div class="incoming-btns">
+                <button class="inc-btn inc-accept" id="acceptCallBtn">✅ Принять</button>
+                <button class="inc-btn inc-reject" id="rejectCallBtn">❌ Отклонить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>

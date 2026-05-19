@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход — Чайхана «Исфайрам»</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-card">
+        <div class="login-logo">
+            <span class="emoji">🫖</span>
+            <h1>Чайхана «Исфайрам»</h1>
+            <p>Войдите чтобы сделать заказ</p>
+        </div>
+        <div class="error-msg" id="errorMsg"></div>
+
+        <!-- ШАГ 1: Ввод номера -->
+        <div class="step active" id="step1">
+            <label>Номер телефона</label>
+            <div class="phone-row">
+                <select class="country-select" id="countryCode">
+                    <option value="+996">🇰🇬 +996</option>
+                    <option value="+7">🇷🇺 +7</option>
+                    <option value="+998">🇺🇿 +998</option>
+                    <option value="+992">🇹🇯 +992</option>
+                    <option value="+993">🇹🇲 +993</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+90">🇹🇷 +90</option>
+                </select>
+                <input type="tel" class="phone-input" id="phoneInput" placeholder="557 00 28 57" maxlength="15" autofocus>
+            </div>
+            <button class="btn btn-primary" id="sendCodeBtn" onclick="sendCode()">Получить код</button>
+        </div>
+
+        <!-- ШАГ 2: Ввод кода -->
+        <div class="step" id="step2">
+            <div class="demo-code" id="demoCode" style="display:none">
+                <p>📱 Ваш код подтверждения:</p>
+                <div class="code" id="demoCodeValue">------</div>
+            </div>
+            <label>Введите 6-значный код</label>
+            <div class="code-inputs" id="codeInputs">
+                <input type="text" class="code-input" maxlength="1" inputmode="numeric">
+                <input type="text" class="code-input" maxlength="1" inputmode="numeric">
+                <input type="text" class="code-input" maxlength="1" inputmode="numeric">
+                <input type="text" class="code-input" maxlength="1" inputmode="numeric">
+                <input type="text" class="code-input" maxlength="1" inputmode="numeric">
+                <input type="text" class="code-input" maxlength="1" inputmode="numeric">
+            </div>
+            <div class="timer" id="timer">Код действует: 5:00</div>
+            <button class="btn btn-primary" id="verifyBtn" onclick="verifyCode()">Подтвердить</button>
+            <a class="back-link" onclick="goToStep(1)">← Другой номер</a>
+        </div>
+
+        <!-- ШАГ 3: Имя -->
+        <div class="step" id="step3">
+            <div style="font-size:3rem;text-align:center;margin-bottom:12px">✅</div>
+            <div style="text-align:center;margin-bottom:16px;color:#3b1f0b">Номер подтверждён! Как вас зовут?</div>
+            <input type="text" class="phone-input" id="nameInput" placeholder="Ваше имя" style="margin-bottom:16px;width:100%">
+            <button class="btn btn-primary" onclick="saveName()">Продолжить</button>
+            <a class="back-link" onclick="window.location.href='/order.html'">Пропустить →</a>
+        </div>
+
+        <a href="index.html" class="home-link">← На главную</a>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

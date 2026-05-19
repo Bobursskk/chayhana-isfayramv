@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказ — Чайхана «Исфайрам»</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="order.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">🫖 <span>Исфайрам</span></a>
+            <div class="nav-right">
+                <span class="nav-user" id="navUser">👤</span>
+                <a href="#" class="nav-logout" id="logoutBtn">Выйти</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page">
+        <h1 class="page-title">Сделать заказ</h1>
+        <p class="page-sub">Выберите блюда и укажите количество в кг</p>
+
+        <div class="menu-grid" id="menuGrid"></div>
+
+        <!-- Корзина -->
+        <div class="cart" id="cart" style="display:none">
+            <div class="cart-header">
+                <h2>🛒 Ваш заказ</h2>
+                <span class="cart-total" id="cartTotal">0 сом</span>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <textarea class="cart-comment" id="cartComment" placeholder="Комментарий к заказу (необязательно)"></textarea>
+            <button class="btn btn-primary" id="orderBtn" onclick="submitOrder()">Отправить заказ</button>
+        </div>
+
+        <!-- Мои заказы -->
+        <div class="my-orders" id="myOrders">
+            <h2 class="section-title">📋 Мои заказы</h2>
+            <div id="ordersList"></div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="order.js"></script>
+</body>
+</html>

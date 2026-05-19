@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Чайхана</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: linear-gradient(170deg, #fdf8f3 0%, #f5e6d3 40%, #eddcc8 100%);
+            font-family: 'Inter', sans-serif;
+            color: #3b1f0b;
+            overflow: hidden;
+        }
+
+        .scene {
+            position: relative;
+            text-align: center;
+            padding: 20px
+        }
+
+        /* === ЧАЙНИК + ЛЬЁТ В ПИЯЛУ === */
+        .pour-scene {
+            position: relative;
+            height: 220px;
+            width: 320px;
+            margin: 0 auto 10px;
+        }
+
+        /* Чайник — emoji, наклоняется вперёд */
+        .teapot {
+            position: absolute;
+            top: 0;
+            left: 50px;
+            font-size: 5rem;
+            transform-origin: 70% 80%;
+            animation: tiltPour 4s ease-in-out 1s forwards;
+            filter: drop-shadow(0 8px 15px rgba(59, 31, 11, .2));
+            z-index: 5;
+        }
+
+        @keyframes tiltPour {
+            0% {
+                transform: rotate(0deg)
+            }
+
+            30% {
+                transform: rotate(35deg)
+            }
+
+            100% {
+                transform: rotate(35deg)
+            }
+        }
+
+        /* Струя чая — появляется после наклона */
+        .tea-pour {
+            position: absolute;
+            top: 75px;
+            left: 185px;
+            width: 6px;
+            height: 0;
+            background: linear-gradient(180deg, #c67a2e, #a0621e);
+            border-radius: 0 0 3px 3px;
+            opacity: 0;
+            animation: pourDown 4s ease-in-out 1s forwards;
+            z-index: 4;
+        }
+
+        @keyframes pourDown {
+
+            0%,
+            25% {
+                height: 0;
+                opacity: 0
+            }
+
+            35% {
+                height: 10px;
+                opacity: .8
+            }
+
+            45% {
+                height: 110px;
+                opacity: .85
+            }
+
+            90% {
+                height: 110px;
+                opacity: .85
+            }
+
+            100% {
+                height: 110px;
+                opacity: 0
+            }
+        }
+
+        /* Пияла — принимает чай */
+        .piyala-scene {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-40%);
+            z-index: 6;
+        }
+
+        .piyala-bowl {
+            width: 80px;
+            height: 45px;
+            background: linear-gradient(180deg, #f0e8dc, #d4c4a8);
+            border-radius: 12% 12% 50% 50%;
+            border: 2px solid rgba(139, 105, 20, .2);
+            box-shadow: 0 6px 18px rgba(59, 31, 11, .15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Узор */
+        .piyala-bowl::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 14px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(0, 80, 170, .2);
+        }
+
+        /* Чай наполняется */
+        .tea-level {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: linear-gradient(180deg, rgba(198, 130, 50, .7), rgba(160, 98, 30, .8));
+            border-radius: 0 0 50% 50%;
+            animation: fillUp 4s ease 1s forwards;
+        }
+
+        @keyframes fillUp {
+
+            0%,
+            30% {
+                height: 0
+            }
+
+            50% {
+                height: 50%
+            }
+
+            70% {
+                height: 85%
+            }
+
+            100% {
+                height: 100%
+            }
+        }
+
+        /* === 404 из предметов === */
+        .error-404 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .digit {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .digit-nan {
+            font-size: 5.5rem;
+            filter: drop-shadow(0 4px 10px rgba(59, 31, 11, .12));
+            animation: bobFloat 3s ease-in-out infinite;
+        }
+
+        .digit:first-child .digit-nan {
+            animation-delay: 0s
+        }
+
+        .digit:last-child .digit-nan {
+            animation-delay: .8s
+        }
+
+        .digit-num {
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #b5451b;
+            text-shadow: 0 2px 6px rgba(181, 69, 27, .2);
+        }
+
+        @keyframes bobFloat {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-6px)
+            }
+        }
+
+        /* Ноль = пияла сверху */
+        .digit-zero {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 38% 35%, #f0e8dc, #d4c4a8, #c0b49c);
+            border: 2.5px solid rgba(139, 105, 20, .2);
+            box-shadow: 0 6px 20px rgba(59, 31, 11, .12);
+            position: relative;
+            overflow: hidden;
+            animation: piyalaPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes piyalaPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 6px 20px rgba(59, 31, 11, .12)
+            }
+
+            50% {
+                box-shadow: 0 8px 28px rgba(59, 31, 11, .18)
+            }
+        }
+
+        /* Чай внутри */
+        .zero-tea {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 40%, rgba(198, 140, 70, .5), rgba(160, 98, 30, .6));
+            animation: teaShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes teaShimmer {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: .6
+            }
+
+            50% {
+                transform: scale(1.04);
+                opacity: .75
+            }
+        }
+
+        .zero-tea::after {
+            content: '';
+            position: absolute;
+            top: 18%;
+            left: 22%;
+            width: 18px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .25);
+            transform: rotate(-25deg);
+        }
+
+        /* Узор на пияле */
+        .zero-pattern {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(0, 80, 170, .2);
+            z-index: 2;
+        }
+
+        /* Пар */
+        .zero-steam {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .zero-steam span {
+            width: 3px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(181, 69, 27, .1);
+            animation: steamFloat 2s ease-in-out infinite;
+        }
+
+        .zero-steam span:nth-child(2) {
+            animation-delay: .4s;
+            height: 15px
+        }
+
+        .zero-steam span:nth-child(3) {
+            animation-delay: .8s;
+            height: 10px
+        }
+
+        @keyframes steamFloat {
+            0% {
+                transform: translateY(0);
+                opacity: .2
+            }
+
+            100% {
+                transform: translateY(-20px) scaleX(2.5);
+                opacity: 0
+            }
+        }
+
+        /* === Перелив → текст === */
+        .overflow-text {
+            margin-top: 10px;
+            position: relative;
+            min-height: 60px;
+        }
+
+        /* Ручейки сверху вниз */
+        .stream {
+            position: absolute;
+            top: 0;
+            width: 3px;
+            background: linear-gradient(180deg, rgba(198, 122, 46, .4), rgba(198, 122, 46, .1), transparent);
+            border-radius: 0 0 2px 2px;
+            animation: streamDown 2s ease forwards;
+            opacity: 0;
+        }
+
+        .stream:nth-child(1) {
+            left: 30%;
+            height: 30px;
+            animation-delay: 5s
+        }
+
+        .stream:nth-child(2) {
+            left: 45%;
+            height: 25px;
+            animation-delay: 5.2s
+        }
+
+        .stream:nth-child(3) {
+            left: 60%;
+            height: 35px;
+            animation-delay: 5.1s
+        }
+
+        .stream:nth-child(4) {
+            left: 70%;
+            height: 20px;
+            animation-delay: 5.3s
+        }
+
+        @keyframes streamDown {
+            0% {
+                height: 0;
+                opacity: 0
+            }
+
+            40% {
+                opacity: .5
+            }
+
+            100% {
+                opacity: .15
+            }
+        }
+
+        /* Лужа */
+        .puddle {
+            width: 280px;
+            height: 15px;
+            margin: 0 auto;
+            background: radial-gradient(ellipse, rgba(198, 122, 46, .2), transparent);
+            border-radius: 50%;
+            opacity: 0;
+            animation: puddleShow 1.5s ease 5.5s forwards;
+        }
+
+        @keyframes puddleShow {
+            from {
+                opacity: 0;
+                transform: scaleX(.3)
+            }
+
+            to {
+                opacity: 1;
+                transform: scaleX(1)
+            }
+        }
+
+        /* Текст из чая */
+        .spill-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: transparent;
+            margin-top: 8px;
+            animation: textFromTea 2s ease 6s forwards;
+        }
+
+        @keyframes textFromTea {
+            0% {
+                color: transparent;
+                letter-spacing: 6px;
+                filter: blur(4px)
+            }
+
+            60% {
+                color: rgba(181, 69, 27, .7);
+                letter-spacing: 2px;
+                filter: blur(1px)
+            }
+
+            100% {
+                color: #b5451b;
+                letter-spacing: .5px;
+                filter: blur(0);
+                text-shadow: 0 0 15px rgba(181, 69, 27, .2)
+            }
+        }
+
+        /* === Кнопка === */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #b5451b;
+            color: #f7efe6;
+            padding: 12px 28px;
+            border-radius: 50px;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: .88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s ease;
+            margin-top: 24px;
+            box-shadow: 0 4px 15px rgba(181, 69, 27, .2);
+            opacity: 0;
+            animation: fadeIn 1s ease 7.5s forwards;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(181, 69, 27, .3);
+            background: #cd6839
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* Крошки */
+        .crumbs {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden
+        }
+
+        .crumb {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(181, 69, 27, .06);
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px);
+                opacity: 0
+            }
+
+            10% {
+                opacity: .2
+            }
+
+            85% {
+                opacity: .08
+            }
+
+            100% {
+                transform: translateY(100vh);
+                opacity: 0
+            }
+        }
+
+        @media(max-width:480px) {
+            .pour-scene {
+                width: 260px;
+                height: 180px
+            }
+
+            .teapot {
+                font-size: 3.5rem;
+                left: 30px
+            }
+
+            .tea-pour {
+                left: 140px;
+                top: 55px
+            }
+
+            .digit-nan {
+                font-size: 4rem
+            }
+
+            .digit-num {
+                font-size: 2rem
+            }
+
+            .digit-zero {
+                width: 75px;
+                height: 75px
+            }
+
+            .error-404 {
+                gap: 4px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="crumbs" id="crumbs"></div>
+
+    <div class="scene">
+        <!-- Чайник наливает в пиялу -->
+        <div class="pour-scene">
+            <div class="teapot">🫖</div>
+            <div class="tea-pour"></div>
+            <div class="piyala-scene">
+                <div class="piyala-bowl">
+                    <div class="tea-level"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 404 из предметов -->
+        <div class="error-404">
+            <div class="digit">
+                <span class="digit-nan"></span>
+                <span class="digit-num">4</span>
+            </div>
+            <div class="digit">
+                <div class="zero-steam"><span></span><span></span><span></span></div>
+                <div class="digit-zero">
+                    <div class="zero-tea"></div>
+                    <div class="zero-pattern"></div>
+                </div>
+            </div>
+            <div class="digit">
+                <span class="digit-nan">🫓</span>
+                <span class="digit-num">4</span>
+            </div>
+        </div>
+
+        <!-- Перелив → текст -->
+        <div class="overflow-text">
+            <div class="stream"></div>
+            <div class="stream"></div>
+            <div class="stream"></div>
+            <div class="stream"></div>
+            <div class="puddle"></div>
+            <p class="spill-text">Проверьте соединение к интернету</p>
+        </div>
+
+        <button class="back-btn" onclick="window.location.href='index.html'">🫖 Вернуться в чайхану</button>
+    </div>
+
+    <script>
+        const c = document.getElementById('crumbs');
+        for (let i = 0; i < 15; i++) {
+            const d = document.createElement('div');
+            d.className = 'crumb';
+            d.style.left = Math.random() * 100 + '%';
+            d.style.animationDuration = (5 + Math.random() * 7) + 's';
+            d.style.animationDelay = Math.random() * 4 + 's';
+            const s = 2 + Math.random() * 4;
+            d.style.width = d.style.height = s + 'px';
+            c.appendChild(d);
+        }
+    </script>
+</body>
+
+</html>

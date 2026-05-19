@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чайхана «Исфайрам» — Уч-Коргон, Кадамжай</title>
+    <meta name="description"
+        content="Чайхана «Исфайрам» в селе Уч-Коргон. Плов, казан-кебаб, шурпа, дымляма и другие блюда на кг. Кадамжайский район, Баткенская область.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Прелоадер -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">🫖</div>
+            <div class="preloader-text">Чайхана</div>
+            <div class="preloader-bar">
+                <div class="preloader-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Навигация -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="logo">🫖 <span>Чайхана</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="nav-link">Главная</a></li>
+                <li><a href="#about" class="nav-link">О нас</a></li>
+                <li><a href="#features" class="nav-link">Почему мы</a></li>
+                <li><a href="#menu" class="nav-link">Меню</a></li>
+                <li><a href="#atmosphere" class="nav-link">Атмосфера</a></li>
+                <li><a href="#contact" class="nav-link">Контакты</a></li>
+            </ul>
+            <button class="burger" id="burger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Главная секция -->
+    <section class="hero" id="hero">
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="brick-wall"></div>
+        <div class="hero-glow"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">✦ Кадамжай • Уч-Коргон ✦</div>
+            <h1 class="hero-title">Чайхана<br><span class="hero-title-accent">«Исфайрам»</span></h1>
+            <p class="hero-desc">Настоящий вкус Востока — плов, казан-кебаб, шурпа и другие блюда, приготовленные с
+                душой в казане на огне</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-num" data-count="650">0</span>
+                    <span class="hero-stat-label">сом / кг</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num" data-count="6">0</span>
+                    <span class="hero-stat-label">блюд</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num" data-count="100">0</span>
+                    <span class="hero-stat-label">% натуральное</span>
+                </div>
+            </div>
+            <div class="hero-btns">
+                <a href="#menu" class="btn btn-warm">🍽️ Смотреть Меню</a>
+                <a href="#contact" class="btn btn-glass">📍 Где мы</a>
+                <a href="tel:+996557002857" class="btn btn-glass">📞 Позвонить</a>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <span>Листайте вниз</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title section-title-left">О нашей чайхане</h2>
+                    <p class="about-desc">
+                        <strong>Чайхана «Исфайрам»</strong> — это место, где каждый может насладиться настоящей
+                        восточной кухней. Мы находимся в самом сердце села Уч-Коргон, Кадамжайского района.
+                    </p>
+                    <p class="about-desc">
+                        Все наши блюда готовятся в <strong>настоящем казане на живом огне</strong> — именно так, как
+                        готовили наши деды. Свежее мясо, ароматный рис, овощи прямо с огорода.
+                    </p>
+                    <p class="about-desc">
+                        У нас еда продаётся <strong>на килограммы</strong> — берите столько, сколько нужно. Никаких
+                        маленьких порций — только щедрость!
+                    </p>
+                    <div class="about-highlights">
+                        <div class="about-highlight">
+                            <span class="about-highlight-icon">🔥</span>
+                            <span>Готовим на огне</span>
+                        </div>
+                        <div class="about-highlight">
+                            <span class="about-highlight-icon">⚖️</span>
+                            <span>Еда на кг</span>
+                        </div>
+                        <div class="about-highlight">
+                            <span class="about-highlight-icon">🥩</span>
+                            <span>Свежее мясо</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-card-stack">
+                        <div class="about-float-card afc-1">
+                            <span class="afc-emoji">🍚</span>
+                            <span class="afc-text">Плов</span>
+                        </div>
+                        <div class="about-float-card afc-2">
+                            <span class="afc-emoji">🥘</span>
+                            <span class="afc-text">Казан-кебаб</span>
+                        </div>
+                        <div class="about-float-card afc-3">
+                            <span class="afc-emoji">🍲</span>
+                            <span class="afc-text">Шурпа</span>
+                        </div>
+                        <div class="about-float-card afc-4">
+                            <span class="afc-emoji">🫕</span>
+                            <span class="afc-text">Дымляма</span>
+                        </div>
+                    </div>
+                    <div class="about-big-emoji">🫖</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <p class="section-sub">То, что делает нашу чайхану особенной</p>
+            <div class="features-grid">
+                <div class="feature-card anim">
+                    <div class="feature-icon-wrap">
+                        <span class="feature-icon">🔥</span>
+                    </div>
+                    <h3>Живой огонь</h3>
+                    <p>Все блюда готовятся исключительно на живом огне в настоящем казане — никаких газовых плит</p>
+                </div>
+                <div class="feature-card anim">
+                    <div class="feature-icon-wrap">
+                        <span class="feature-icon">⚖️</span>
+                    </div>
+                    <h3>Еда на кг</h3>
+                    <p>Никаких маленьких порций! Берите ровно столько, сколько нужно — от 0.5 кг до любого объёма</p>
+                </div>
+                <div class="feature-card anim">
+                    <div class="feature-icon-wrap">
+                        <span class="feature-icon">💰</span>
+                    </div>
+                    <h3>Честная цена</h3>
+                    <p>Всего 650 сом за килограмм — вкусно, сытно и доступно для каждого</p>
+                </div>
+                <div class="feature-card anim">
+                    <div class="feature-icon-wrap">
+                        <span class="feature-icon">🥩</span>
+                    </div>
+                    <h3>Свежие продукты</h3>
+                    <p>Только свежее мясо с базара и овощи, выращенные в нашем регионе — никаких заморозок</p>
+                </div>
+                <div class="feature-card anim">
+                    <div class="feature-icon-wrap">
+                        <span class="feature-icon">👨‍🍳</span>
+                    </div>
+                    <h3>Мастера-повара</h3>
+                    <p>Наши повара готовят восточные блюда по рецептам, передающимся из поколения в поколение</p>
+                </div>
+                <div class="feature-card anim">
+                    <div class="feature-icon-wrap">
+                        <span class="feature-icon">📦</span>
+                    </div>
+                    <h3>На заказ</h3>
+                    <p>Принимаем заказы на любые блюда для мероприятий — тои, юбилеи, семейные праздники</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Меню -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="section-title">Наше Меню</h2>
+            <p class="section-sub">Все блюда продаются на килограммы • 1 кг = 650 сом</p>
+            <div class="menu-price-badge">
+                <span class="mpb-label">Единая цена</span>
+                <span class="mpb-price">650 сом/кг</span>
+            </div>
+            <div class="menu-grid" id="menuGrid"></div>
+            <div class="menu-note anim">
+                <span class="menu-note-icon">📋</span>
+                <p>Также принимаем заказы на <strong>другие блюда</strong> — звоните и мы приготовим всё, что пожелаете!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Атмосфера -->
+    <section class="atmosphere" id="atmosphere">
+        <div class="container">
+            <h2 class="section-title">Наша атмосфера</h2>
+            <p class="section-sub">Уют и тепло настоящей чайханы</p>
+            <div class="atm-grid">
+                <div class="atm-card atm-card-big anim">
+                    <div class="atm-card-inner">
+                        <span class="atm-emoji">🫖</span>
+                        <h3>Традиционная чайхана</h3>
+                        <p>Уютные топчаны, восточные ковры и ароматный чай — всё для вашего комфорта</p>
+                    </div>
+                </div>
+                <div class="atm-card anim">
+                    <div class="atm-card-inner">
+                        <span class="atm-emoji">🌿</span>
+                        <h3>Свежий воздух</h3>
+                        <p>Летняя терраса с видом на горы</p>
+                    </div>
+                </div>
+                <div class="atm-card anim">
+                    <div class="atm-card-inner">
+                        <span class="atm-emoji">👨‍👩‍👧‍👦</span>
+                        <h3>Семейная обстановка</h3>
+                        <p>Приходите всей семьёй — у нас рады каждому</p>
+                    </div>
+                </div>
+                <div class="atm-card anim">
+                    <div class="atm-card-inner">
+                        <span class="atm-emoji">🎉</span>
+                        <h3>Мероприятия</h3>
+                        <p>Проводим тои, юбилеи и праздники</p>
+                    </div>
+                </div>
+                <div class="atm-card anim">
+                    <div class="atm-card-inner">
+                        <span class="atm-emoji">🍵</span>
+                        <h3>Чай с душой</h3>
+                        <p>Зелёный и чёрный чай к каждому блюду</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Как нас найти — большая секция -->
+    <section class="location-banner" id="locationBanner">
+        <div class="container">
+            <div class="loc-banner-content">
+                <span class="loc-banner-icon">📍</span>
+                <h2>Мы находимся в селе Уч-Коргон</h2>
+                <p>Кадамжайский район, Баткенская область, Кыргызстан</p>
+                <a href="#contact" class="btn btn-warm">Подробнее →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты и местоположение -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты и местоположение</h2>
+            <p class="section-sub">Как нас найти и связаться с нами</p>
+            <div class="contact-grid">
+                <div class="c-card anim">
+                    <span class="c-icon">📍</span>
+                    <h3>Адрес</h3>
+                    <p>Кыргызстан, Баткенская область, Кадамжайский район, село Уч-Коргон</p>
+                    <p class="c-detail">Чайхана «Исфайрам»</p>
+                </div>
+                <div class="c-card anim">
+                    <span class="c-icon">🚦</span>
+                    <h3>Ориентир</h3>
+                    <p>Прямо с Таджик-кишлака в Золотой-мост, рядом со светофором в Таш-Какир, но вперёд и налево ←</p>
+                </div>
+                <div class="c-card anim">
+                    <span class="c-icon">📞</span>
+                    <h3>Телефоны</h3>
+                    <p><a href="tel:+996557002857" class="phone-link">+996 557 00 28 57</a></p>
+                    <p><a href="tel:+996770999559" class="phone-link">+996 770 99 95 59</a></p>
+                </div>
+                <div class="c-card anim">
+                    <span class="c-icon">🕐</span>
+                    <h3>Время работы</h3>
+                    <p class="work-time">08:00 — 22:00</p>
+                    <p class="c-detail">Каждый день без выходных</p>
+                </div>
+            </div>
+
+            <!-- CTA блок -->
+            <div class="cta-block anim">
+                <div class="cta-content">
+                    <h3>Хотите заказать блюдо?</h3>
+                    <p>Позвоните нам и мы приготовим для вас любое блюдо — плов, казан-кебаб, шурпа, дымляма и многое
+                        другое!</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="tel:+996557002857" class="btn btn-warm btn-lg">📞 +996 557 00 28 57</a>
+                    <a href="tel:+996770999559" class="btn btn-glass btn-lg">📞 +996 770 99 95 59</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">🫖 Чайхана «Исфайрам»</span>
+                    <p>Настоящий вкус Востока в селе Уч-Коргон</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#hero">Главная</a>
+                    <a href="#about">О нас</a>
+                    <a href="#menu">Меню</a>
+                    <a href="#contact">Контакты</a>
+                </div>
+                <div class="footer-contacts">
+                    <a href="tel:+996557002857">📞 +996 557 00 28 57</a>
+                    <a href="tel:+996770999559">📞 +996 770 99 95 59</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Чайхана «Исфайрам» — с. Уч-Коргон, Кадамжай</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Кнопка наверх -->
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

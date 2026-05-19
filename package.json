@@ -1,0 +1,16 @@
+{
+  "name": "chayhana-isfayram",
+  "version": "1.0.0",
+  "description": "Чайхана Исфайрам — система заказов, чат и видеозвонки",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "socket.io": "^4.7.5",
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^10.0.0"
+  }
+}
